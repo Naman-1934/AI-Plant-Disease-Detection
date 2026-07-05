@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.logger import app_logger
+from app.ml.model_loader import ModelLoader
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -16,6 +17,8 @@ async def lifespan(app: FastAPI):
 
     app_logger.info("Starting Plant Disease Detection API...")
 
+    ModelLoader.load_model()
+    
     yield
 
     app_logger.info("Shutting down Plant Disease Detection API...")
