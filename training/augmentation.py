@@ -14,7 +14,7 @@ def get_data_augmentation() -> tf.keras.Sequential:
     Create data augmentation pipeline.
     """
 
-    return tf.keras.Sequentail([
+    return tf.keras.Sequential([
         tf.keras.layers.RandomFlip("horizontal"),
         tf.keras.layers.RandomRotation(0.15),
         tf.keras.layers.RandomZoom(0.15),

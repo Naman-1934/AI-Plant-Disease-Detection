@@ -44,13 +44,13 @@ class DataLoader:
 
         # Randomize training order. Only training data is shuffled.
         train_dataset = (
-            train_dataset.cache().shuffle(1000).prefetch(autotune)
+            train_dataset.shuffle(512).prefetch(autotune)
         )
 
         # Cache == Read images once, Store in memory and Faster every epoch.
         # Prefetch = CPU loads the next batch while GPU trains on the current one.
         validation_dataset = (
-            validation_dataset.cache().prefetch(autotune)
+            validation_dataset.prefetch(autotune)
         )
 
-        return train_dataset, validation_dataset, class_names
+        return (train_dataset, validation_dataset, class_names,)
