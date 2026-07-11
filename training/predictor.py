@@ -18,7 +18,7 @@ from tensorflow.keras.utils import load_img
 
 MODEL_PATH = Path("saved_models/plant_disease_model.keras")
 
-class predictor:
+class Predictor:
     """
     Service responsible for loading the model and predicting disease.
     """
