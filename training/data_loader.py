@@ -54,3 +54,18 @@ class DataLoader:
         )
 
         return (train_dataset, validation_dataset, class_names,)
+    
+
+    @staticmethod
+    def get_class_names() -> list[str]:
+        """
+        Return the dataset class names without loading the dataset.
+        """
+
+        class_names = sorted(
+            directory.name
+            for directory in DATASET_DIR.iterdir()
+            if directory.is_dir()
+        )
+
+        return class_names
