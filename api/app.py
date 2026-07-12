@@ -34,7 +34,7 @@ def root() -> dict[str, str]:
         "message": "Plant Disease Detection API is running."
     }
 
-@app.get("/predict")
+@app.post("/predict")
 def predict(file: UploadFile = File(...)) -> dict:
     """
     Predict plant disease from an uploaded image.
